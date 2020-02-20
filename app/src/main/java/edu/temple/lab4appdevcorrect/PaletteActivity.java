@@ -2,6 +2,7 @@ package edu.temple.lab4appdevcorrect;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,16 @@ public class PaletteActivity extends AppCompatActivity {
                 //change color of selected text view to white
                 TextView textView = (TextView)parent.getChildAt(0);
                 textView.setBackgroundColor(Color.parseColor("white"));
+
+
+                if(colors[position] != "select a color")
+                {
+                    //launch the new activity and pass it data
+                    Intent myIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
+                    myIntent.putExtra("color", colors[position]); //Optional parameters
+                    PaletteActivity.this.startActivity(myIntent);
+
+                }
 
 
 
