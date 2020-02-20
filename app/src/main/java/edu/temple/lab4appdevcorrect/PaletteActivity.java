@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class PaletteActivity extends AppCompatActivity {
 
-    String[] colors = {"red", "blue", "green", "gray", "cyan", "magenta", "yellow", "lightgray", "darkgray", "aqua", "fuchsia"};
+    String[] colors = {"select a color", "red", "blue", "green", "gray", "cyan", "magenta", "yellow", "lightgray", "darkgray", "aqua", "fuchsia"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +25,17 @@ public class PaletteActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                //change color of layout background
-                findViewById(R.id.PaletteActivity).setBackgroundColor(Color.parseColor(colors[position]));
+
+                if(colors[position] != "select a color")
+                {
+                    //change color of layout background
+                    findViewById(R.id.PaletteActivity).setBackgroundColor(Color.parseColor(colors[position]));
+                }
+
 
                 //change color of selected text view to white
                 TextView textView = (TextView)parent.getChildAt(0);
-                textView.setBackgroundColor(Color.parseColor("white"));//CRASHES PROGRAM
+                textView.setBackgroundColor(Color.parseColor("white"));
 
 
 
