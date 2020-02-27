@@ -15,10 +15,11 @@ public class CanvasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_canvas);
 
         Intent intent = getIntent();
-        String color = intent.getStringExtra("color"); //if it's a string you stored.
+        String colorName = intent.getStringExtra("color"); //if it's a string you stored.
+        int color = intent.getIntExtra("c", 1);
 
-        findViewById(R.id.CanvasActivity).setBackgroundColor(Color.parseColor(color));
+        findViewById(R.id.CanvasActivity).setBackgroundColor(color);
         TextView tv = (TextView) findViewById(R.id.colorTextView);
-        tv.setText(color);
+        tv.setText(colorName);
     }
 }

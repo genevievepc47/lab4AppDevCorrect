@@ -13,8 +13,9 @@ import android.widget.TextView;
 
 public class PaletteActivity extends AppCompatActivity {
 
-    //String[] colors = {"select a color", "red", "blue", "green", "gray", "cyan", "magenta", "yellow", "lightgray", "darkgray", "aqua", "fuchsia"};
+    int c[] = {Color.rgb(255,0,0), Color.rgb(0, 0, 255), Color.rgb(0, 255, 0), Color.rgb(128, 128, 128), Color.rgb(0, 255, 255), Color.rgb(255,0,255), Color.rgb(255,255,0), Color.rgb(211,211,211), Color.rgb(169,169,169), Color.rgb(0,255,255), Color.rgb(255,0,255) };
     String[] colors;
+    //MAKE AN ARRAY OF THE COLOR CODES FOR THE COLORS, DISPLAY THE COLOR CODE, NOT THE PARSE COLOR
 
 
     @Override
@@ -24,6 +25,7 @@ public class PaletteActivity extends AppCompatActivity {
 
         Resources res = getResources();
         colors = res.getStringArray(R.array.colors_array);
+
 
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
         mySpinner.setAdapter(new ColorAdapter(PaletteActivity.this, colors));
@@ -37,13 +39,13 @@ public class PaletteActivity extends AppCompatActivity {
                 if(colors[position] != colors[0])
                 {
                     //change color of layout background
-                    findViewById(R.id.PaletteActivity).setBackgroundColor(Color.parseColor(colors[position]));
+                    findViewById(R.id.PaletteActivity).setBackgroundColor(c[position-1]);
                 }
 
 
                 //change color of selected text view to white
                 TextView textView = (TextView)parent.getChildAt(0);
-                textView.setBackgroundColor(Color.parseColor("white"));
+                textView.setBackgroundColor(Color.rgb(255,255,255));
 
 
                 if(colors[position] != colors[0])
@@ -51,6 +53,7 @@ public class PaletteActivity extends AppCompatActivity {
                     //launch the new activity and pass it data
                     Intent myIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
                     myIntent.putExtra("color", colors[position]); //Optional parameters
+                    myIntent.putExtra("c", c[position-1]);
                     PaletteActivity.this.startActivity(myIntent);
 
                 }
