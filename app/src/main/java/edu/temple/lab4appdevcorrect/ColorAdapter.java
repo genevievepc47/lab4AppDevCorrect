@@ -44,7 +44,7 @@ public class ColorAdapter extends BaseAdapter {
         final TextView textView = (TextView) view.findViewById(R.id.colorRow);
         textView.setText(colors[position]);
 
-        if(colors[position] != "select a color")
+        if(colors[position] != colors[0])
         {
             textView.setBackgroundColor(Color.parseColor(colors[position]));
         }

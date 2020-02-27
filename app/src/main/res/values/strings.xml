@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">lab4AppDevCorrect</string>
+
+
+
+        <string-array name="colors_array">
+
+            <item>select a color</item>
+            <item>red</item>
+            <item>blue</item>
+            <item>green</item>
+            <item>gray</item>
+            <item>cyan</item>
+            <item>magenta</item>
+            <item>yellow</item>
+            <item>lightgray</item>
+            <item>darkgray</item>
+            <item>aqua</item>
+            <item>fuchsia</item>
+
+        </string-array>
+
 </resources>

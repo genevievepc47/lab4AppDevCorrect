@@ -3,6 +3,7 @@ package edu.temple.lab4appdevcorrect;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -12,11 +13,17 @@ import android.widget.TextView;
 
 public class PaletteActivity extends AppCompatActivity {
 
-    String[] colors = {"select a color", "red", "blue", "green", "gray", "cyan", "magenta", "yellow", "lightgray", "darkgray", "aqua", "fuchsia"};
+    //String[] colors = {"select a color", "red", "blue", "green", "gray", "cyan", "magenta", "yellow", "lightgray", "darkgray", "aqua", "fuchsia"};
+    String[] colors;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Resources res = getResources();
+        colors = res.getStringArray(R.array.colors_array);
 
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
         mySpinner.setAdapter(new ColorAdapter(PaletteActivity.this, colors));
@@ -27,7 +34,7 @@ public class PaletteActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                if(colors[position] != "select a color")
+                if(colors[position] != colors[0])
                 {
                     //change color of layout background
                     findViewById(R.id.PaletteActivity).setBackgroundColor(Color.parseColor(colors[position]));
@@ -39,7 +46,7 @@ public class PaletteActivity extends AppCompatActivity {
                 textView.setBackgroundColor(Color.parseColor("white"));
 
 
-                if(colors[position] != "select a color")
+                if(colors[position] != colors[0])
                 {
                     //launch the new activity and pass it data
                     Intent myIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
