@@ -11,7 +11,7 @@ public class ColorAdapter extends BaseAdapter {
 
     Context context;
     String[] colors;
-
+    //test
     public ColorAdapter(Context context,String[] colors) {
         super();
         this.context = context;
