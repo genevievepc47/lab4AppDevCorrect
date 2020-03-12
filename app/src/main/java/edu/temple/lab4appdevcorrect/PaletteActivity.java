@@ -87,7 +87,10 @@ public class PaletteActivity extends AppCompatActivity implements PaletteFragmen
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container2, canvasFragment)
+                .addToBackStack(null)
                 .commit();
     }
 
 }
+
+//PLACE TRANSACTION ON THE BACKSTACK
