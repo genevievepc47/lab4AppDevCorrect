@@ -18,6 +18,13 @@ public class PaletteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container1, new PaletteFragment())
+                .commit();
+
+        /*
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
         mySpinner.setAdapter(new ColorAdapter(PaletteActivity.this, colors));
 
@@ -58,6 +65,8 @@ public class PaletteActivity extends AppCompatActivity {
 
             }
         });
+
+         */
 
     }
 }
