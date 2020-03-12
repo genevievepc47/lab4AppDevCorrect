@@ -18,10 +18,16 @@ public class PaletteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle bundle = new Bundle();
+        bundle.putStringArray("colorArray",colors);
+
+        PaletteFragment paletteFragment = new PaletteFragment();
+        paletteFragment.setArguments(bundle);
+
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container1, new PaletteFragment())
+                .add(R.id.container1, paletteFragment)
                 .commit();
 
         /*
